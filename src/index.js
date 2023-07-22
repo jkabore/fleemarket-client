@@ -1,13 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { ConfigProvider } from "antd";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store} >
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            colorPrimary: "#432172",
+            colorPrimaryHover: "#432172",
+            borderRadius: "2px",
+            boxShadow: "none",
+          },
+        },
+        token: {
+          borderRadius: "2px",
+          colorPrimary: "#432172",
+        },
+      }}
+    >
+      <App />
+    </ConfigProvider>
+   </Provider>
   </React.StrictMode>
 );
 
