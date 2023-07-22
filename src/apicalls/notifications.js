@@ -4,7 +4,7 @@ import { axiosInstance } from "./axiosInstance";
 export const AddNotification = async (data) => {
   try {
     const response = await axiosInstance.post(
-      "/api/notifications/notify",
+      `${process.env.REACT_APP_API}/api/notifications/notify`,
       data
     );
     return response.data;
@@ -17,7 +17,7 @@ export const AddNotification = async (data) => {
 export const GetAllNotifications = async () => {
   try {
     const response = await axiosInstance.get(
-      "/api/notifications/get-all-notifications"
+      `${process.env.REACT_APP_API}/api/notifications/get-all-notifications`
     );
     return response.data;
   } catch (error) {
@@ -29,7 +29,7 @@ export const GetAllNotifications = async () => {
 export const DeleteNotification = async (id) => {
   try {
     const response = await axiosInstance.delete(
-      `/api/notifications/delete-notification/${id}`
+      `${process.env.REACT_APP_API}/api/notifications/delete-notification/${id}`
     );
     return response.data;
   } catch (error) {
@@ -41,7 +41,7 @@ export const DeleteNotification = async (id) => {
 export const ReadAllNotifications = async () => {
   try {
     const response = await axiosInstance.put(
-      "/api/notifications/read-all-notifications"
+      `${process.env.REACT_APP_API}/api/notifications/read-all-notifications`
     );
     return response.data;
   } catch (error) {
