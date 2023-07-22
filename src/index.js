@@ -5,7 +5,12 @@ import App from "./App";
 import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 import reportWebVitals from "./reportWebVitals";
+
+if (process.env.NODE_ENV === 'production') {
+  disableReactDevTools();
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
